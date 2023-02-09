@@ -37,7 +37,7 @@ getContorno(borde)
 
 #Mostrar las imágenes resultantes creando un objeto de la clase StackImagen
 stack = StackImagen(0.4)
-imagenes = [img,gris,gaus,img2,borde]
+imagenes = [img,gris,gaus,borde,img2]
 
 
 result = stack.stack_images(imagenes)

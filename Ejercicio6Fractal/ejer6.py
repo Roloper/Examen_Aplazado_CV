@@ -2,7 +2,7 @@ import turtle
 from turtle import*
 
 def f(n):
-    speed(0)
+    speed(0.1)
     if n==0:
         forward(5)
     else:

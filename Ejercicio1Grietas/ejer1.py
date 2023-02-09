@@ -3,7 +3,7 @@ import numpy as np
 from stackImages import StackImagen
 
 # Carga la imagen
-img = cv2.imread("imagenes1\pare_ejer1\pared5.jpg")
+img = cv2.imread("imagenes1\pare_ejer1\pared.jpg")
 
 # Convertir la imagen a escala de grises
 gris = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

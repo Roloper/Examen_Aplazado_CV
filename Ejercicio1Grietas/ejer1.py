@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
+from stackImages import StackImagen
 
 # Carga la imagen
-img = cv2.imread("imagenes1\pare_ejer1\pared.jpg")
+img = cv2.imread("imagenes1\pare_ejer1\pared5.jpg")
 
 # Convertir la imagen a escala de grises
 gris = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -24,10 +25,13 @@ contorno = np.zeros((img.shape[0], img.shape[1], 3), np.uint8)
 contorno.fill(255)
 # Dibujar los contornos en la imagen de fondo blanco
 cv2.drawContours(contorno, contours, -1, (0, 0, 0), 2)
-# Mostrar las imágenes resultantes
-cv2.imshow("Original", img)
-cv2.imshow("bordes",borde)
-cv2.imshow("EscalaGris", gris)
-cv2.imshow("Contorno", contorno)
+# Mostrar las imágenes resultantes creando un objeto de la clase StackImagen
+stack = StackImagen(0.7)
+
+imagenes = [img,gris
+            ,borde,contorno]
+
+result = stack.stack_images(imagenes)
+cv2.imshow("Resultado",result)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

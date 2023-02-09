@@ -7,6 +7,9 @@ img = cv2.imread("imagenes1\pare_ejer1\pared.jpg")
 # Convertir la imagen a escala de grises
 gris = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
+## Convertir a HSL
+#hsl_img = cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
+
 # Aplicar un filtro Gaussiano para suavizar la imagen
 gris = cv2.GaussianBlur(gris, (3,3), 0)
 

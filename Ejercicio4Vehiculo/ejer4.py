@@ -8,10 +8,15 @@ import matplotlib.pyplot as plt
 
 #VIdeo importado
 vid = cv2.VideoCapture(r'recursos\video.mp4')
+
+
 min_width_react=80
 min_hight_react=80
+
 count_line_postion = 550 #Para asignar la posicion de la linea
-#Inicializando el Subestructurado
+
+
+#Inicializando el Subestructurado, trata de quitar el fondo y enfocar el objeto en movimiento
 algo = cv2.bgsegm.createBackgroundSubtractorMOG()
 
 def center_handle(x,y,w,h):

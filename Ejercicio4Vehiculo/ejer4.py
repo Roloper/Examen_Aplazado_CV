@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 #VIdeo importado
 vid = cv2.VideoCapture(r'recursos\video.mp4')
 
-
+#tamaño minimo del objeto
 min_width_react=80
 min_hight_react=80
 

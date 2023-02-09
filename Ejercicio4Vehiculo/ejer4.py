@@ -1,9 +1,6 @@
-import os
-import re
 import cv2 # opencv library
 import numpy as np
-from os.path import isfile, join
-import matplotlib.pyplot as plt
+
 
 
 #VIdeo importado
@@ -19,6 +16,7 @@ count_line_postion = 550 #Para asignar la posicion de la linea
 #Inicializando el Subestructurado, trata de quitar el fondo y enfocar el objeto en movimiento
 algo = cv2.bgsegm.createBackgroundSubtractorMOG()
 
+#Calcular el centro del objeto
 def center_handle(x,y,w,h):
     x1=int(w/2)
     y1=int(h/2)
@@ -45,13 +43,13 @@ while True:
     #Aplicamos a cada frame el Substructurado
     img_sub = algo.apply(gaus)
 
-    #
+    #Dilatamos los elementos de la imagen
     dilat = cv2.dilate(img_sub,np.ones((5,5)))
 
     #
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
 
-    #
+    #Se cierra las pequeñas brechas de la imagen binaria
     dilatada = cv2.morphologyEx(dilat,cv2.MORPH_CLOSE, kernel)
     dilatada = cv2.morphologyEx(dilatada, cv2.MORPH_CLOSE, kernel)
 
@@ -80,8 +78,6 @@ while True:
             print("vehiculo contado: ", cont)
 
     cv2.putText(frame1,"Vehiculo contado: "+str(cont),(450,70),cv2.FONT_HERSHEY_SIMPLEX,2,(0,255,0),5)
-
-
 
 
     cv2.imshow('Video',frame1) #muestar el fotograma

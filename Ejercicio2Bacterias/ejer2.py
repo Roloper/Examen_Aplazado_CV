@@ -3,7 +3,7 @@ import numpy as np
 from stackImages import StackImagen
 
 #Cargar la imagen
-img = cv2.imread(r"imagenes2\bacteria2.jpg")
+img = cv2.imread(r"imagenes2\bacteria.jpg")
 img2 = img.copy()
 # Convertir la imagen a escala de grises
 gris = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
